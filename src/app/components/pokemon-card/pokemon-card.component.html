@@ -1,0 +1,13 @@
+<nz-card nzHoverable style="width: 18em" [nzCover]="coverTemplate">
+  <nz-card-meta
+    [nzDescription]="pokemon | getDescription"
+    [nzTitle]="pokemon | getName"
+  ></nz-card-meta>
+</nz-card>
+<ng-template #coverTemplate>
+  <img
+    [alt]="pokemon | getName"
+    [src]="pokemon.sprites.front_default"
+    [routerLink]="[pokemon.id]"
+  />
+</ng-template>

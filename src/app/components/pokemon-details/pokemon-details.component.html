@@ -1,0 +1,38 @@
+<nz-layout>
+  <nz-header
+    ><h1>
+      {{ pokemon | getName }} - {{ pokemon | getDescription }}
+    </h1></nz-header
+  >
+  <nz-layout>
+    <nz-sider
+      ><img
+        nz-image
+        width="200px"
+        height="200px"
+        [src]="pokemon.sprites.front_default"
+        alt=""
+    /></nz-sider>
+    <nz-content>
+      <nz-table
+        #nzTable
+        [nzData]="pokemon.moves"
+        nzTableLayout="auto"
+        nzShowSizeChanger
+      >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let move of nzTable.data">
+            <td>{{ move.move.name }}</td>
+            <td>{{ move.move.url }}</td>
+          </tr>
+        </tbody>
+      </nz-table></nz-content
+    >
+  </nz-layout>
+</nz-layout>
