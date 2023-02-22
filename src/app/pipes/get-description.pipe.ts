@@ -6,7 +6,7 @@ import { firstLetterUppercase } from './utils-pipe';
   name: 'getDescription',
 })
 export class GetDescriptionPipe implements PipeTransform {
-  transform(pokemon: Pokemon): string {
+  transform(pokemon: Pokemon | undefined | null): string {
     if (pokemon) {
       let description = '';
       pokemon.types.forEach((type) => {

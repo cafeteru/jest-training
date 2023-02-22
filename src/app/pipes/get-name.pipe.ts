@@ -6,10 +6,10 @@ import { firstLetterUppercase } from './utils-pipe';
   name: 'getName',
 })
 export class GetNamePipe implements PipeTransform {
-  transform(pokemon: Pokemon): string {
+  transform(pokemon: Pokemon | undefined | null): string {
     if (pokemon) {
       const { id, name } = pokemon;
-      return `${('00' + id).slice(-3)} - ${firstLetterUppercase(name)}`;
+      return `${('000' + id).slice(-4)} - ${firstLetterUppercase(name)}`;
     }
     return '';
   }

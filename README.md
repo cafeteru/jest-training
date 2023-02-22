@@ -2,4 +2,13 @@
 
 ## Config Jest in Angular
 
-Use the following instructions -> https://github.com/thymikee/jest-preset-angular
+Use the following instructions -> <https://github.com/thymikee/jest-preset-angular>
+
+## Order of tests
+
+1. Utils-pipe (utils-pipe.spec.ts)
+2. Pipes (get-description.pipe.spec.ts and get-name.pipe.spec.ts)
+3. Services (pokemon.service.spec.ts)
+4. Components (pokemon-list.component.spec.ts and pokemon-detail.component.spec.ts)
+5. Resolvers (pokemon.resolver.spec.ts)
+6. Guards (pokemon.guard.spec.ts)
