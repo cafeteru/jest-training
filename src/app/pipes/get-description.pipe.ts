@@ -13,7 +13,7 @@ export class GetDescriptionPipe implements PipeTransform {
         const typeName = firstLetterUppercase(type.type.name);
         description += `${typeName} - `;
       });
-      return description.substring(0, description.length - 2);
+      return description.substring(0, description.length - 3);
     }
     return '';
   }

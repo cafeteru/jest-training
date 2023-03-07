@@ -13,6 +13,5 @@ export class PokemonDetailsComponent {
   constructor(private route: ActivatedRoute) {
     const { pokemon } = this.route.snapshot.data;
     this.pokemon = pokemon;
-    this.pokemon.moves[0].move.url;
   }
 }
