@@ -11,6 +11,8 @@ export class PokemonDetailsComponent {
   pokemon: Pokemon;
 
   constructor(private route: ActivatedRoute) {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.warn(id); // todo change to execute service here
     const { pokemon } = this.route.snapshot.data;
     this.pokemon = pokemon;
   }

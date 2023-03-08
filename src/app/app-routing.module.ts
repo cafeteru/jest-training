@@ -1,8 +1,30 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { inject, NgModule } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  ResolveFn,
+  Router,
+  RouterModule,
+  Routes,
+} from '@angular/router';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
-import { PokemonDetailsResolver } from './resolver/pokemon-details.resolver';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonService } from './services/pokemon.service';
+import { Pokemon } from './models/pokemon';
+import { catchError, of } from 'rxjs';
+
+export const pokemonDetailsResolver: ResolveFn<Pokemon | null> = (
+  route: ActivatedRouteSnapshot
+) => {
+  const id = route.paramMap.get('id');
+  return inject(PokemonService)
+    .getById(Number(id))
+    .pipe(
+      catchError(() => {
+        inject(Router).navigateByUrl('/').then();
+        return of(null);
+      })
+    );
+};
 
 const routes: Routes = [
   {
@@ -13,7 +35,7 @@ const routes: Routes = [
     path: `:id`,
     component: PokemonDetailsComponent,
     resolve: {
-      pokemon: PokemonDetailsResolver,
+      pokemon: pokemonDetailsResolver,
     },
   },
 ];
