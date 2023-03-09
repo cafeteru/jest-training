@@ -9,11 +9,14 @@ export class GetDescriptionPipe implements PipeTransform {
   transform(pokemon: Pokemon | undefined | null): string {
     if (pokemon) {
       let description = '';
-      pokemon.types.forEach((type) => {
-        const typeName = firstLetterUppercase(type.type.name);
-        description += `${typeName} - `;
-      });
-      return description.substring(0, description.length - 3);
+      const { types } = pokemon;
+      if (types) {
+        types.forEach((type) => {
+          const typeName = firstLetterUppercase(type.type.name);
+          description += `${typeName} - `;
+        });
+        return description.substring(0, description.length - 3);
+      }
     }
     return '';
   }

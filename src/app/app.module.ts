@@ -21,6 +21,7 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { GetImagePipe } from './pipes/get-image.pipe';
 
 registerLocaleData(en);
 
@@ -32,6 +33,7 @@ registerLocaleData(en);
     PokemonCardComponent,
     PokemonDetailsComponent,
     PokemonListComponent,
+    GetImagePipe,
   ],
   imports: [
     AppRoutingModule,

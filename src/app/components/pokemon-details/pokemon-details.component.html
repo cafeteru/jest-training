@@ -1,14 +1,33 @@
 <nz-layout>
   <nz-header>
     <h1>
-      <a routerLink="/"><i nz-icon nzType="step-backward" nzTheme="outline"></i></a>
+      <a routerLink="/"
+        ><i
+          nz-icon
+          nzType="step-backward"
+          nzTheme="outline"
+          [class]="getClass"
+        ></i
+      ></a>
       {{ pokemon | getName }} - {{ pokemon | getDescription }}
     </h1>
   </nz-header>
   <nz-layout>
-    <nz-sider><img nz-image width="200px" height="200px" [src]="pokemon.sprites.front_default" alt="" /></nz-sider>
+    <nz-sider
+      ><img
+        nz-image
+        width="200px"
+        height="200px"
+        [src]="pokemon | getImage"
+        alt=""
+    /></nz-sider>
     <nz-content>
-      <nz-table #nzTable [nzData]="pokemon.moves" nzTableLayout="auto" nzShowSizeChanger>
+      <nz-table
+        #nzTable
+        [nzData]="pokemon.moves"
+        nzTableLayout="auto"
+        nzShowSizeChanger
+      >
         <thead>
           <tr>
             <th>Name</th>
@@ -21,6 +40,7 @@
             <td>{{ move.move.url }}</td>
           </tr>
         </tbody>
-      </nz-table></nz-content>
+      </nz-table>
+    </nz-content>
   </nz-layout>
 </nz-layout>

@@ -23,6 +23,6 @@ export interface Pokemon {
   species: Species;
   sprites: Sprites;
   stats: Stat[];
-  types: Type[];
+  types: Type[] | null;
   weight: number;
 }

@@ -13,7 +13,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = [];
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
     this.pokemons = [];
@@ -21,11 +21,9 @@ export class PokemonListComponent implements OnInit {
     from(pokemonIds)
       .pipe(
         concatMap((id) =>
-          this.pokemonService.getById(id + 1).pipe(
-            map((pokemon) =>
-              this.pokemons.push(pokemon)
-            )
-          )
+          this.pokemonService
+            .getById(id + 1)
+            .pipe(map((pokemon) => this.pokemons.push(pokemon)))
         ),
         toArray(),
         untilDestroyed(this)

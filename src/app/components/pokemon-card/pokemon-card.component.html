@@ -7,7 +7,7 @@
 <ng-template #coverTemplate>
   <img
     [alt]="pokemon | getName"
-    [src]="pokemon.sprites.front_default"
+    [src]="pokemon | getImage"
     [routerLink]="[pokemon.id]"
   />
 </ng-template>
